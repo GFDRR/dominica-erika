@@ -15,17 +15,23 @@ repoUrl = "https://s3.amazonaws.com/dominica-erika/images/";
 
 var osmLayer = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { maxZoom: 20, attribution: 'Data \u00a9 <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT' })
 
+
+
+
 //Initiate the map
 var map = L.map('map', {
   layers: [osmLayer]
 });
 
+
+
+
 var basemaps = {
-  "Open Street Map": osmLayer
+  "Open Street Map": osmLayer,
 },
 
   overlays = {
-    "Assessments": Assessments
+    "Assessments": Assessments,
   }
 
 
