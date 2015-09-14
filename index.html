@@ -1,0 +1,62 @@
+<html>
+	
+	<head>
+		<title>Dominica DALA Erika 2015</title>
+
+		<link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+		<link rel="stylesheet" href="bower_components/bxslider-4/dist/jquery.bxslider.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="bower_components/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+		<link rel="stylesheet" href="style.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	</head>
+	<body>
+
+		<script src="bower_components/leaflet/dist/leaflet.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="bower_components/bxslider-4/dist/jquery.bxslider.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+		<script src="bower_components/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+		<div id="map"></div>
+		<div id='tooltip'></div>
+		<div id="detailsModal" class="modal">
+			<div class="modal-content" id="infoTemplateContent"></div>
+			<div class="modal-footer">
+				<a href="#!" id="cancel-btn" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+			</div>
+		</div>
+		
+		<div id="commentmodal" class="modal">
+			<div class="modal-content">
+				<h4>Enter Comment</h4>
+				
+
+				<form id="comment" class="col s12" enctype="multipart/form-data">
+					Name:
+					<input type="text" id="commentName"></input>
+					Comment: 
+					<textarea style="height:10em" id="commentField"></textarea>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<div id="messages" style="display:none"></div>
+				<a href="#!" id="cancel-btn" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+				<a href="#!" id="save-btn" class=" modal-action waves-effect waves-green btn-flat">Save</a>
+			</div>
+		</div>
+		
+	</body>
+	<footer>
+		<script src="main.js"></script>
+		<!--<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.0.min.js"></script>
+		<script type="text/javascript">
+		  // See the Configuring section to configure credentials in the SDK
+		  AWS.config.credentials = '';
+		
+		  // Configure your region
+		  AWS.config.region = 'us-west-2';
+		</script>-->
+	</footer>
+
+</html>
