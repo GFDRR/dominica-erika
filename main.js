@@ -224,7 +224,7 @@ var attribution = L.control({ position: 'bottomleft' });
 
 attribution.onAdd = function(map){
       var div = L.DomUtil.create('div', 'attribution');
-       div.innerHTML = '<div><div class="inlineElements"><img src="https://s3.amazonaws.com/dominica-erika/images/gfdrr_logo.png"/></div></div>'
+       div.innerHTML = '<div class="infoBox"><div style="margin-left:10px">Post Tropical Storm Erika Engineering Assessments</div><div class="inlineElements"><img src="https://s3.amazonaws.com/dominica-erika/images/gfdrr_logo.png"/></div></div>'
 
 
 

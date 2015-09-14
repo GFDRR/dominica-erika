@@ -95,4 +95,10 @@ body {
 	margin-bottom:5px;
 	background-color: lightgray
 }
+.infoBox{
+	max-width: 300px;
+	background-color: white;
+	    font-weight: 600;
+    font-size: large;
+}
 
