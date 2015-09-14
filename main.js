@@ -264,25 +264,7 @@ $("#save-btn").click(function () {
 
 //Clears the map settings post modal close
 function resetMap() {
-  $('#entrymodal').closeModal();
-  markers.clearLayers();
-  requestPoints();
-                  
-  //There is a bug in materialize which does not remove the display modal 
-  //So we select by class and remove that element
-  var leanOverlay = $(".lean-overlay");
-  leanOverlay.remove()
-                  
-  //Reset the form                  
-  $('#data')[0].reset();
-  $('#messages').empty();
-  $('#takePictureField').val("");
-                  
-  //Remove the click listener from the map
-  map.off('click');
-                  
-  //Reset the cursor
-  $('#map').removeClass('pointer-cursor');
+  
 }
 
 //Disable the image upload if an image link is entered
