@@ -98,7 +98,7 @@ map.on('load', function (e) {
           '<div>',
             '<ul id="imgSlideshow" class="bxslider">',
             '</ul>',
-          '</div> Click Name to Expand',  
+          '</div> Click Section to Expand',  
           '<ul class="collapsible" data-collapsible="accordion">',   
           '<li>',
               '<div class="collapsible-header active"><b>DETAILS</b></div>',
@@ -191,9 +191,10 @@ map.on('load', function (e) {
       div.innerHTML = [
         '<div class="ptLegend"><div><b>PRIORITIES</b></div>',
         
-        '<div><div class="circle" style="background-color:red"></div>HIGH</div>',
-        '<div><div class="circle" style="background-color:goldenrod"></div>MEDIUM</div>',
-        '<div><div class="circle" style="background-color:green"></div>LOW</div>',
+        '<div><div class="circle inlineElements" style="background-color:red"></div><div class="inlineElements">HIGH</div></div>',
+        '<div><div class="circle inlineElements" style="background-color:goldenrod"></div><div class="inlineElements">MEDIUM</div></div>',
+        '<div><div class="circle inlineElements" style="background-color:green"></div><div class="inlineElements">LOW</div>',
+        '<div ><div class="circle inlineElements" style="background-color:gray;"></div><div class="inlineElements">N/A</div></div>',
 
         '</div>'
       ].join('');
@@ -398,8 +399,11 @@ function addComment() {
   $.post('https://gfdrr-innovationlab.cartodb.com/api/v2/sql?q=INSERT INTO dominica_comments ("commenter","comments","foreign_key") VALUES(' + "'" + userName + "'," + "'" + userComment + "'," + "'" + fk + "'" + ')&api_key=beed66b266b802efe70f3dd1cc0dd857d24c6185')
     .done(function () {
     Materialize.toast('Comment added', 2000);
+     
   });
   $('#commentmodal').closeModal();
+  $('#commentName').val('');
+     $('#commentField').val('');
   callComments(assessment_id);
 
 }

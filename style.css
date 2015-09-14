@@ -46,16 +46,18 @@ body {
 	min-height:100px;
 	font-size: 16px;
 	padding-left: 10px;
-	opacity: 0.8
-	
+	opacity: 0.8	
+}
+
+.inlineElements{
+	display: inline-block;
+	margin-left: 10px
 }
 
 .circle {
 	border-radius: 50%;
 	width: 15px;
 	height: 15px; 
-
-
 }
 
 #comments{
