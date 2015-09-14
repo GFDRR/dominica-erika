@@ -1,7 +1,7 @@
 
 
 
-siteUrl = "http://gfdrr.github.io/dominica-erika", //would be good to move this to the config file also
+siteUrl = "http://gfdrr.github.io/dominica-erika", 
 Assessments = new L.layerGroup(),
 fullImg = null,
 thumbnail = null,
@@ -13,7 +13,7 @@ repoUrl = "https://s3.amazonaws.com/dominica-erika/images/";
 //bucket = new AWS.S3({params: {Bucket: 'images'}});
 
 
-var osmLayer = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { maxZoom: 20, attribution: 'Data \u00a9 <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT' })
+var osmLayer = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { maxZoom: 20, attribution: 'Data \u00a9 World Bank, GFDRR Labs, Government of Dominica <a href="http://www.openstreetmap.org/copyright"> OpenStreetMap Contributors </a> Tiles \u00a9 HOT' })
 
 
 
@@ -220,8 +220,24 @@ map.on('load', function (e) {
 
 });
 
+var attribution = L.control({ position: 'bottomleft' });
+
+attribution.onAdd = function(map){
+      var div = L.DomUtil.create('div', 'attribution');
+       div.innerHTML = '<div><div class="inlineElements"><img src="https://s3.amazonaws.com/dominica-erika/images/gfdrr_logo.png"/></div></div>'
 
 
+
+
+
+      return div;
+    ;
+
+
+      
+}
+
+attribution.addTo(map);
 
 
 map.setView([15.4, -61.3], 11);
