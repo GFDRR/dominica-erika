@@ -1,7 +1,7 @@
 
 
 
-siteUrl = "http://gfdrr.github.io/dominica-erika", 
+siteUrl = "http://gfdrr.github.io/dominica-erika",
 Assessments = new L.layerGroup(),
 fullImg = null,
 thumbnail = null,
@@ -102,50 +102,53 @@ map.on('load', function (e) {
           '<div class="popupcontent">',
           '<h4>{name}</h4>',
           '<div>',
-            '<ul id="imgSlideshow" class="bxslider">',
-            '</ul>',
-          '</div> Click Section to Expand',  
-          '<ul class="collapsible" data-collapsible="accordion">',   
+          '<ul id="imgSlideshow" class="bxslider">',
+          '</ul>',
+          '</div> Click Section to Expand',
+          '<ul class="collapsible" data-collapsible="accordion">',
           '<li>',
-              '<div class="collapsible-header active"><b>DETAILS</b></div>',
-              '<div class="collapsible-body"><table style="font-size:inherit">',
-                '<thead>',
-                '<tr>',
-                   '<th>Cost Estimate</th>', 
-                    '<th>Damages</th>',
-                    '<th>Urgent Works</th>',
-                    '<th>Long Term Works</th>',
-                    '<th>Current Use</th>',
-                '</tr>',
-                '</thead>',
-              '<tbody>',
-               '<tr>',
-               '<td>{costs}</td>', 
-               '<td>{damage}</td>',
-               '</tr>',
-               '</tbody></table>',
-           '</div>',
-          '</li>',    
+          '<div class="collapsible-header active"><b>DETAILS</b></div>',
+          '<div class="collapsible-body"><table style="font-size:inherit">',
+          '<thead>',
+          '<tr>',
+          '<th>Cost Estimate (USD)</th>',
+          '<th>Damages</th>',
+          '<th>Urgent Works</th>',
+          '<th>Long Term Works</th>',
+          '<th>Current Use</th>',
+          '</tr>',
+          '</thead>',
+          '<tbody>',
+          '<tr>',
+          '<td>{costs}</td>',
+          '<td>{damage}</td>',
+          '<td>{urgent_works}</td>',
+          '<td>{long_term_works}</td>',
+          '<td>{current_use}</td>',
+          '</tr>',
+          '</tbody></table>',
+          '</div>',
+          '</li>',
           '<li>',
-            '<div class="collapsible-header"><b>COMMENTS</b></div>', 
-            '<div class="collapsible-body"><div id="comments"></div><div><button class="waves-effect waves-light btn" id="addComment">Add Comment</button></div></div>',
-            '</div>',  
+          '<div class="collapsible-header"><b>COMMENTS</b></div>',
+          '<div class="collapsible-body"><div id="comments"></div><div><button class="waves-effect waves-light btn" id="addComment">Add Comment</button></div></div>',
+          '</div>',
 
           '</li>',
 
-          // '<div><b>UPLOAD IMAGE:</b></div>',
-          // '<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" />',
+        // '<div><b>UPLOAD IMAGE:</b></div>',
+        // '<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" />',
           '</div>'
         ].join('');
 
         var utilTemplate = {
           name: feature.properties.name,
           priority: feature.properties.priority,
-          costs: feature.properties.cost_estimate,
-          current_use: feature.properties.current_use,
-          damage: feature.properties.damage,
-          long_term_works: feature.properties.long_term_works,
-          urgent_works: feature.properties.urgent_works
+          costs: feature.properties.cost_estimate || 'N/A',
+          current_use: feature.properties.current_uses || 'N/A',
+          damage: feature.properties.damage || 'N/A',
+          long_term_works: feature.properties.long_term_works || 'N/A',
+          urgent_works: feature.properties.urgent_works || 'N/A'
         };   
          
      
@@ -158,9 +161,9 @@ map.on('load', function (e) {
 
 
         ptMarker.on('popupopen', function (e) {
-            $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
+          $('.collapsible').collapsible({
+            accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+          });
 
           var arr = feature.properties.images.split(',');
           $(arr).each(function (index, row) {
@@ -184,8 +187,8 @@ map.on('load', function (e) {
         return Assessments.addLayer(ptMarker);
 
       }
-        
-             
+
+
     });
 
     Assessments.addTo(map);
@@ -196,7 +199,7 @@ map.on('load', function (e) {
 
       div.innerHTML = [
         '<div class="ptLegend"><div><b>PRIORITIES</b></div>',
-        
+
         '<div><div class="circle inlineElements" style="background-color:red"></div><div class="inlineElements">HIGH</div></div>',
         '<div><div class="circle inlineElements" style="background-color:goldenrod"></div><div class="inlineElements">MEDIUM</div></div>',
         '<div><div class="circle inlineElements" style="background-color:green"></div><div class="inlineElements">LOW</div>',
@@ -222,19 +225,19 @@ map.on('load', function (e) {
 
 var attribution = L.control({ position: 'bottomleft' });
 
-attribution.onAdd = function(map){
-      var div = L.DomUtil.create('div', 'attribution');
-       div.innerHTML = '<div class="infoBox"><div style="margin-left:10px">Post Tropical Storm Erika Engineering Assessments</div><div class="inlineElements"><img src="https://s3.amazonaws.com/dominica-erika/images/gfdrr_logo.png"/></div></div>'
+attribution.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'attribution');
+  div.innerHTML = '<div class="infoBox"><div style="margin-left:10px">Post Tropical Storm Erika Engineering Assessments</div><div class="inlineElements"><img src="https://s3.amazonaws.com/dominica-erika/images/gfdrr_logo.png"/></div></div>'
 
 
 
 
 
-      return div;
-    ;
+  return div;
+  ;
 
 
-      
+
 }
 
 attribution.addTo(map);
@@ -264,7 +267,7 @@ $("#save-btn").click(function () {
 
 //Clears the map settings post modal close
 function resetMap() {
-  
+
 }
 
 //Disable the image upload if an image link is entered
@@ -403,11 +406,11 @@ function addComment() {
   $.post('https://gfdrr-innovationlab.cartodb.com/api/v2/sql?q=INSERT INTO dominica_comments ("commenter","comments","foreign_key") VALUES(' + "'" + userName + "'," + "'" + userComment + "'," + "'" + fk + "'" + ')&api_key=beed66b266b802efe70f3dd1cc0dd857d24c6185')
     .done(function () {
     Materialize.toast('Comment added', 2000);
-     
+
   });
   $('#commentmodal').closeModal();
   $('#commentName').val('');
-     $('#commentField').val('');
+  $('#commentField').val('');
   callComments(assessment_id);
 
 }
